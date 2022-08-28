@@ -80,34 +80,17 @@ char* STRCAT(char * destination, const char * source)
 
 int STRCMP( const char * string1, const char * string2 )
 {
-    size_t len_1 = strlen(string1), len_2 = strlen(string2),
-                   min_len = min(len_1, len_2);
+    int i = 0;
 
-    int diff = len_1 - len_2;
-
-    if (diff)
-        return diff;
-
-    else
+    while (string1[i] == string2[i])
     {
-        int i = 0;
+        if ((string1[i] == '\0') || (string2[i] == '\0'))
+            i--;
 
-        while (string1[i] == string2[i])
-        {
-            if (string1[i] == '\0')
-            {
-                i--;
-
-                break;
-            }
-
-            i++;
-        }
-
-        return string1[i] - string2[i];
+        i++;
     }
 
-    return 0;
+    return string1[i] - string2[i];
 }
 
 
