@@ -21,34 +21,17 @@ int min(int n1, int n2)
 
 int STRCMP( const char * string1, const char * string2 )
 {
-    size_t len_1 = strlen(string1), len_2 = strlen(string2),
-                   min_len = min(len_1, len_2);
+    int i = 0;
 
-    int diff = len_1 - len_2;
-
-    if (diff)
-        return diff;
-
-    else
+    while (string1[i] == string2[i])
     {
-        int i = 0;
+        if ((string1[i] == '\0') || (string2[i] == '\0'))
+            i--;
 
-        while (string1[i] == string2[i])
-        {
-            if (string1[i] == '\0')
-            {
-                i--;
-
-                break;
-            }
-
-            i++;
-        }
-
-        return string1[i] - string2[i];
+        i++;
     }
 
-    return 0;
+    return string1[i] - string2[i];
 }
 
 int main()
@@ -60,8 +43,18 @@ int main()
         char s1[32] = {};
         char s2[32] = {};
 
-        printf("Введите 2 слова: ");
-        scanf("%s %s", s1, s2);
+        printf("Введите первое слово: ");
+        scanf("%s", s1);
+
+        while(getchar() != '\n')
+                    continue;
+
+        printf("Введите второе слово: ");
+        scanf("%s", s2);
+
+        while(getchar() != '\n')
+            continue;
+
         printf("Результат выполнения функции: %d\n\n", STRCMP(s1, s2));
     }
 }

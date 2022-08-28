@@ -34,8 +34,12 @@ int main()
         char s[32] = {};
         char s_cpy[32] = {};
 
-        printf("Введите слово: ");
-        scanf("%s", s);
-        printf("Скопированное слово: %s\n\n", STRNCPY(s_cpy, s, strlen(s)));
+        printf("Введите строку: ");
+        scanf("%[^\n]s", s);
+
+        printf("Скопированная строка: %s\n\n", STRNCPY(s_cpy, s, strlen(s)));
+
+        while(getchar() != '\n')
+            continue;
     }
 }

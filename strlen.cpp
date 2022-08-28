@@ -26,9 +26,13 @@ int main()
     {
         char str[32] = {};
 
-        printf("Введите слово: ");
-        scanf("%s", str);
-        printf("Слово содержит %ld букв\n\n", STRLEN(str));
+        printf("Введите строку: ");
+        scanf("%[^\n]s", str);
+
+        printf("Строка содержит %ld символов\n\n", STRLEN(str));
+
+        while(getchar() != '\n')
+            continue;
     }
 
 }

@@ -29,8 +29,18 @@ int main()
         char s1[32] = {};
         char s2[32] = {};
 
-        printf("Введите 2 слова: ");
-        scanf("%s %s", s1, s2);
-        printf("Объединённое слово: %s\n\n", STRCAT(s1, s2));
+        printf("Введите первую строку: ");
+        scanf("%[^\n]s", s1);
+
+        while(getchar() != '\n')
+                    continue;
+
+        printf("Введите вторую строку: ");
+        scanf("%[^\n]s", s2);
+
+        while(getchar() != '\n')
+            continue;
+
+        printf("Объединённая строка: %s\n\n", STRCAT(s1, s2));
     }
 }

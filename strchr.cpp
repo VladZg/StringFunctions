@@ -34,13 +34,17 @@ int main()
         char symb = 0;
 
         printf("Введите строку: ");
-        scanf("%s", str);
+        scanf("%[^\n]s", str);
 
         while (getchar() != '\n')
             continue;
 
         printf("Введите символ: ");
         scanf("%c", &symb);
+
+        while (getchar() != '\n')
+            continue;
+
         printf("Первое вхождение: %s\n\n", STRCHR(str, symb));
     }
 }
