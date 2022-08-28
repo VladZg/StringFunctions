@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <algorithm>
 
 
 //! @brief Функция, вычисляющая длину строки без символа '\0'
@@ -23,7 +24,7 @@ int main()
 
     while (true)
     {
-        char str[] = "";
+        char str[32] = {};
 
         printf("Введите слово: ");
         scanf("%s", str);

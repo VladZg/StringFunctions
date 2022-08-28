@@ -14,6 +14,10 @@ int min(int n1, int n2)
 }
 
 
+//! @brief Функция, вычисляющая длину строки без символа '\0'
+//! @param[in] string Указатель на строку
+//! @return Число типа int, являющееся длиной заданной строки без символа '\0'
+
 size_t STRLEN(char * string)
 {
     size_t length = 0;
@@ -25,6 +29,12 @@ size_t STRLEN(char * string)
         return length;
 }
 
+
+//! @brief Функция, копирующая заданную строку
+//! @param[in] source Указатель на копируемую строку
+//! @param[in] n Кол-во копируемых элементов
+//! @param[out] destination Указатель на строку, в которую запишется скопированная
+//! @return destination
 
 char* STRNCPY(char * destination, const char * source, size_t n)
 {
@@ -42,6 +52,11 @@ char* STRNCPY(char * destination, const char * source, size_t n)
 }
 
 
+//! @brief Функция, ставящая одну строку в конец другой
+//! @param[in] source Указатель на копируемую строку, которую функция поставит в конец
+//! @param[out] destination Указатель на начальную строку
+//! @return destination
+
 char* STRCAT(char * destination, const char * source)
 {
     int j = 0;
@@ -56,19 +71,22 @@ char* STRCAT(char * destination, const char * source)
 }
 
 
+//! @brief Функция, сравнивающая строки
+//! @param[in] string1 Указатель на первую строку
+//! @param[in] string2 Указатель на вторую строку
+//! @return число > 0 - string1 > string2
+//! @return 0 - string1 = string2
+//! @return число < 0 - string1 < string2
+
 int STRCMP( const char * string1, const char * string2 )
 {
-    size_t len_1 = strlen(string1), len_2 = strlen(string2), min_len = min(len_1, len_2);
+    size_t len_1 = strlen(string1), len_2 = strlen(string2),
+                   min_len = min(len_1, len_2);
 
     int diff = len_1 - len_2;
 
-    if (diff > 0)
-
-        return 1;
-
-    else if (diff < 0)
-
-        return -1;
+    if (diff)
+        return diff;
 
     else
     {
@@ -86,16 +104,30 @@ int STRCMP( const char * string1, const char * string2 )
             i++;
         }
 
-        int diff_i = string1[i] - string2[i];
-
-        if (diff_i > 0)
-
-            return 1;
-
-        else if (diff_i < 0)
-
-            return -1;
+        return string1[i] - string2[i];
     }
 
     return 0;
+}
+
+
+//! @brief Функция, ищущая первое вхождение символа в строку
+//! @param[in] symbol Символ, вхождение которого в строку ищется
+//! @param[in] string Указатель на строку, в которой производится поиск
+//! @return Указатель на первое вхождение символа в строку
+
+const char * STRCHR(const char * string, int symbol) {
+
+    int i = 0;
+
+    while (string[i] != symbol)
+    {
+        i++;
+    }
+
+    if (string[i] != '\0')
+        return &string[i];
+
+    else
+        return NULL;
 }

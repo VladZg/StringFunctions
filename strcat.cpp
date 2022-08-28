@@ -11,10 +11,9 @@ char* STRCAT(char * destination, const char * source)
 {
     int j = 0;
 
-    for (size_t i = strlen(destination); source[j] != '\0'; i++)
+    for (size_t i = strlen(destination); source[j] != '\0'; i++, j++)
     {
         destination[i] = source[j];
-        j++;
     }
 
     return destination;

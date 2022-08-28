@@ -5,11 +5,9 @@
 int min(int n1, int n2)
 {
     if (n1 < n2)
-
         return n1;
 
     else
-
         return n2;
 }
 
@@ -17,23 +15,19 @@ int min(int n1, int n2)
 //! @brief Функция, сравнивающая строки
 //! @param[in] string1 Указатель на первую строку
 //! @param[in] string2 Указатель на вторую строку
-//! @return 1 - string1 > string2
+//! @return число > 0 - string1 > string2
 //! @return 0 - string1 = string2
-//! @return -1 - string1 < string2
+//! @return число < 0 - string1 < string2
 
 int STRCMP( const char * string1, const char * string2 )
 {
-    size_t len_1 = strlen(string1), len_2 = strlen(string2), min_len = min(len_1, len_2);
+    size_t len_1 = strlen(string1), len_2 = strlen(string2),
+                   min_len = min(len_1, len_2);
 
     int diff = len_1 - len_2;
 
-    if (diff > 0)
-
-        return 1;
-
-    else if (diff < 0)
-
-        return -1;
+    if (diff)
+        return diff;
 
     else
     {
@@ -51,15 +45,7 @@ int STRCMP( const char * string1, const char * string2 )
             i++;
         }
 
-        int diff_i = string1[i] - string2[i];
-
-        if (diff_i > 0)
-
-            return 1;
-
-        else if (diff_i < 0)
-
-            return -1;
+        return string1[i] - string2[i];
     }
 
     return 0;
